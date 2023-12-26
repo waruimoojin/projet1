@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  containers1:
+    container_name: containers1
+    build: 
+      context: .
+    ports:
+      - "3002:3000"
+    networks:
+      - localnetwork
+    volumes:
+      - containers1data:/app
+
+  containers2:
+    container_name: containers2
+    build: 
+      context: .
+    ports:
+      - "3001:3000"
+    networks:
+      - localnetwork
+    volumes:
+      - containers2data:/app
+
+networks:
+  localnetwork:
+volumes:
+  containers1data:
+  containers2data:    
